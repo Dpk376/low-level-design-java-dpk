@@ -13,43 +13,37 @@ import java.util.List;
  * Main entry point simulating the User Interface.
  * 
  * Layman Explanation:
- * This acts as the "Frontend" of our application. It sets up the players, 
- * requests the GameController to start the game, and handles the loop of taking
- * turns and asking for user input until someone wins or the game draws.
+ * This acts as the "Frontend" of our application. It is very simple—it just defines 
+ * the settings for the game (like Board Size and Players), asks the GameController 
+ * to start, and then hands over control. 
+ * We removed the "Game Loop" from here to keep the User Interface decoupled from 
+ * the game's internal business logic (Model-View-Controller pattern).
  */
 public class Client {
 
+    // Removing Magic Numbers: We define our configurations clearly at the top.
+    private static final int DEFAULT_BOARD_SIZE = 3;
+    private static final int PLAYER_ONE_ID = 1;
+    private static final int PLAYER_TWO_ID = 3;
+
     public static void main(String[] args) {
 
-        int size = 3;
         List<Player> players = new ArrayList<>();
-        players.add(new Human(1,"Goku",new Symbol("X","X"),20));
-        //players.add(new Bot(2,"Goku",new Symbol("O","O"), BotDifficulty.EASY));
-        players.add(new Human(3,"Kishore",new Symbol("C","C"),7));
-        List<WinningStrategy> winningStrategies = List.of(new RowWinningStrategy(),
-                new ColWinningStrategy());
+        players.add(new Human(PLAYER_ONE_ID, "Goku", new Symbol("X", "X"), 20));
+        //players.add(new Bot(2, "Bot", new Symbol("O", "O"), BotDifficulty.EASY));
+        players.add(new Human(PLAYER_TWO_ID, "Kishore", new Symbol("C", "C"), 7));
+        
+        List<WinningStrategy> winningStrategies = List.of(
+                new RowWinningStrategy(),
+                new ColWinningStrategy()
+        );
 
         GameController gameController = new GameController();
-        Game game = gameController.startGame(size,players,winningStrategies);
+        
+        // Step 1: Initialize the Game
+        Game game = gameController.startGame(DEFAULT_BOARD_SIZE, players, winningStrategies);
 
-        // play
-        while(gameController.getGameState(game).equals(GameState.IN_PROGRESS)) {
-            gameController.display(game);
-            gameController.makeMove(game);
-            System.out.println("Do you want to UNDO");
-            
-        }
-
-        gameController.display(game);
-
-      if(gameController.getGameState(game).equals(GameState.DRAW)) {
-          System.out.println("Game DRAWN");
-      }
-      else {
-          // winning
-          System.out.println("PLayer" +game.getWinner().getName()+ " has won");
-      }
-
-      // UNDO
+        // Step 2: Hand over control to the GameController to run the game loop.
+        gameController.runGameLoop(game);
     }
 }
