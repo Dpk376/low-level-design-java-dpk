@@ -5,6 +5,14 @@ import models.enums.CellState;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents the NxN playing grid for the game.
+ * 
+ * Design Decision:
+ * We use a 2D List of Cells rather than a primitive 2D array. While an array is more 
+ * memory-efficient, a List provides better integration with Java's Collections framework
+ * and allows for more flexible operations if the board size were to change dynamically.
+ */
 public class Board {
 
     private int size;

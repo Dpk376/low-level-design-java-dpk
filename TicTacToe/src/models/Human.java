@@ -4,6 +4,9 @@ import models.enums.PlayerType;
 
 import java.util.Scanner;
 
+/**
+ * Represents a real-world user interacting via the console or UI.
+ */
 public class Human extends Player {
     private int age;
     private Scanner scanner = new Scanner(System.in);

@@ -9,6 +9,14 @@ import strategy.WinningStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Main entry point simulating the User Interface.
+ * 
+ * Layman Explanation:
+ * This acts as the "Frontend" of our application. It sets up the players, 
+ * requests the GameController to start the game, and handles the loop of taking
+ * turns and asking for user input until someone wins or the game draws.
+ */
 public class Client {
 
     public static void main(String[] args) {

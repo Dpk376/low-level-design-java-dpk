@@ -7,6 +7,14 @@ import strategy.WinningStrategy;
 
 import java.util.List;
 
+/**
+ * Stateless orchestrator that acts as an interface between the Client (UI/Console)
+ * and the Model (Game).
+ * 
+ * Design Decision:
+ * Centralizing the game flow in a controller ensures that our Models remain pure 
+ * and independent of how the input is gathered (Console, Web API, Mobile App).
+ */
 public class GameController {
 
     public Game startGame(int size,

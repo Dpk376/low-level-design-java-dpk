@@ -5,6 +5,14 @@ import models.enums.BotDifficulty;
 import models.enums.PlayerType;
 import strategy.BotPlayingStrategy;
 
+/**
+ * Represents an AI player.
+ * 
+ * Architecture Note (Strategy Pattern):
+ * The Bot does not contain the logic for "how" to play. Instead, it delegates to a 
+ * BotPlayingStrategy. This allows us to dynamically change a bot's difficulty level 
+ * without modifying the Bot class itself (Open/Closed Principle).
+ */
 public class Bot extends Player{
     private BotDifficulty botDifficulty;
     private BotPlayingStrategy playingStrategy;

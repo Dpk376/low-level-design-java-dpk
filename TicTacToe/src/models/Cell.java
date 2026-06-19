@@ -2,6 +2,13 @@ package models;
 
 import models.enums.CellState;
 
+/**
+ * Represents a single coordinate on the Board.
+ * 
+ * Design Decision:
+ * Encapsulating row and column inside a Cell object avoids passing raw x,y integers 
+ * throughout the system, leading to stronger type safety and cleaner method signatures.
+ */
 public class Cell {
 
     private int row;

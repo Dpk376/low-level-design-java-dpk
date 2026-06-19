@@ -1,5 +1,8 @@
 package models;
 
+/**
+ * Represents the character (e.g., 'X', 'O') a Player places on the Board.
+ */
 public class Symbol {
 
     private String name;

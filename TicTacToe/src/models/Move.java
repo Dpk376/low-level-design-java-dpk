@@ -1,5 +1,13 @@
 package models;
 
+/**
+ * Represents a single action taken by a Player.
+ * 
+ * Design Decision:
+ * Storing both the Player and the Cell in a Move object allows us to implement 
+ * the 'Undo' feature efficiently. We can simply pop the last Move from the history
+ * stack and revert the exact Cell back to EMPTY.
+ */
 public class Move {
 
     private Player player;

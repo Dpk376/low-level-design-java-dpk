@@ -6,6 +6,10 @@ import models.Player;
 
 import java.util.HashMap;
 
+/**
+ * Checks for a win condition vertically down a column.
+ * Uses HashMap counting for O(1) win verification.
+ */
 public class ColWinningStrategy implements WinningStrategy{
     private HashMap<String, Integer> colMaps[];
 

@@ -9,6 +9,18 @@ import strategy.WinningStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The core entity representing the state of a single TicTacToe match.
+ * 
+ * Architecture Note (Builder Pattern):
+ * We use the Builder pattern for object creation. A game requires extensive validation
+ * before it can start (e.g., n-1 players for an nxn board, unique symbols). The Builder
+ * ensures that a Game object cannot be instantiated in an invalid state.
+ * 
+ * Trade-offs:
+ * - We track history (`moves` list) for O(1) Undo operations. This uses O(N^2) memory 
+ *   but drastically improves time complexity compared to recalculating board states.
+ */
 public class Game {
 
     private Board board;
