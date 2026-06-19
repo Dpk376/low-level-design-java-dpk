@@ -1,73 +1,95 @@
-# Low Level Design (LLD) - Backend Course (April 2026)
+# ☕ Java Low-Level Design (LLD) Portfolio
 
-Welcome to the comprehensive code repository for the Low-Level Design Backend course! This repository contains all the code examples, patterns, and principles discussed throughout the course, refactored to meet **Google-level readability and engineering standards**.
+Welcome to my Java Low-Level Design repository! This project serves as a comprehensive portfolio demonstrating my ability to write clean, extensible, and production-grade code using advanced Object-Oriented Design (OOD) principles, Design Patterns, and Java 17 features.
 
-Whether you are a beginner looking to understand basic object-oriented concepts, a junior engineer studying design patterns, or a senior developer preparing for a grueling system design interview, this repository serves as a master reference guide.
-
-## 📚 Repository Structure & Learning Path
-
-The repository is organized into distinct modules, progressing from foundational object-oriented programming (OOP) to advanced concurrency and architectural design patterns. 
-
-We recommend following this path for the best learning experience:
-
-### Phase 1: Core Object-Oriented Programming (OOP)
-1. **[OOPS-1: Classes, Objects, and Encapsulation](./OOPS-1/README.md)**
-   - Understand the building blocks of Java.
-   - Learn how to protect data integrity using access modifiers (Encapsulation).
-2. **[OOPS-2: Copy Constructors, Inheritance, and Polymorphism](./OOPS-2/README.md)**
-   - Master object copying (shallow vs. deep copies).
-   - Learn how classes inherit state and behavior.
-   - Understand compile-time (method overloading) polymorphism.
-3. **[OOPS-3: Abstract Classes, Interfaces, and Static](./OOPS-3/README.md)**
-   - Define contracts using interfaces and abstract classes.
-   - Grasp runtime (method overriding) polymorphism.
-   - Learn about class-level state with the `static` keyword.
-
-### Phase 2: Intermediate Java Concepts
-4. **[Exception Handling](./ExceptionHandling/README.md)**
-   - Learn how to build resilient software that doesn't crash on bad inputs.
-   - Understand Checked vs. Unchecked exceptions and custom exception classes.
-5. **[Generics](./Generics/README.md)**
-   - Write type-safe, reusable code.
-   - Master wildcard bounds (PECS: Producer Extends, Consumer Super).
-6. **[Streams and Lambdas](./StreamsAndLambdas/README.md)**
-   - Embrace functional programming in Java.
-   - Process collections efficiently using declarative pipelines.
-
-### Phase 3: Advanced Concepts & Architecture
-7. **[Multithreading & Concurrency](./Multithreading/README.md)**
-   - Understand the perils of shared mutable state.
-   - Master synchronization, Locks, Semaphores, and Thread Pools (ExecutorService).
-8. **[SOLID Principles](./SolidPrinciples/README.md)**
-   - The bedrock of maintainable software design.
-   - Learn how to prevent code rot by adhering to SRP, OCP, LSP, ISP, and DIP.
-9. **[Design Patterns](./Design%20Patterns/README.md)**
-   - Proven solutions to common software design problems.
-   - Covers Creational (Singleton, Builder, Factory, Prototype), Structural (Adapter, Facade, Decorator, Flyweight), and more.
+The repository is structured as an enterprise-grade Maven Multi-Module project. You can clone it, open it in any modern IDE (IntelliJ, Eclipse, VS Code), and instantly start exploring the code.
 
 ---
 
-## 🛠 Engineering Standards Applied
+## 🏗️ Repository Architecture
 
-This codebase isn't just a collection of examples; it's a demonstration of production-grade coding practices. Across all modules, you will notice:
+Each module in this repository focuses on a specific engineering concept or system design challenge.
 
-- **Strict Encapsulation**: State is locked down (`private`) and mutated only through controlled behaviors.
-- **Meaningful Naming**: Variables like `x` and `n` have been replaced with descriptive names. Code reads like English.
-- **Comprehensive Javadoc**: Every class and public method is documented, explaining not just *what* it does, but *why* the pattern was chosen.
-- **Robust Error Handling**: Exceptions are thrown early with clear, actionable error messages.
-- **Test-Driven Verification**: Every module includes plain JUnit 5 test classes to verify behavior programmatically.
+### 1. [Design Patterns](./DesignPatterns)
+A deep dive into the "Gang of Four" design patterns, implemented with real-world scenarios.
+- **Creational:** Builder, Factory, Prototype, Registry, Singleton
+- **Structural:** Adapter, Decorator, Facade, Flyweight
+- **Behavioral:** Strategy, Observer (integrated across projects)
 
-## 🚀 How to Run Tests
+### 2. [Solid Principles](./SolidPrinciples)
+Practical implementations showcasing the five SOLID principles of object-oriented design. The code demonstrates how to refactor tightly-coupled legacy code into modular, maintainable components.
 
-The codebase uses plain JUnit 5 without complex build tools like Maven or Gradle. We have included a standalone JUnit Console Launcher to make running tests simple.
+### 3. [Multithreading](./Multithreading)
+Advanced concurrency patterns in Java.
+- **Synchronization:** Locks, synchronized blocks, and thread safety.
+- **Semaphores:** Implementing producer-consumer queues and managing resource pools.
+- **Parallel Algorithms:** Multi-threaded Merge Sort using Fork/Join and Executors.
 
-To run tests for a specific module (e.g., `OOPS-1`), navigate to the root directory and execute:
+### 4. [Object-Oriented Programming (OOPS)](./OOPS-1)
+Core concepts broken down into modular packages:
+- **OOPS-1:** Classes, Objects, and memory management.
+- **OOPS-2:** Inheritance, Polymorphism, and method overriding.
+- **OOPS-3:** Abstraction, Interfaces, and the `static` keyword.
+
+### 5. [Streams & Lambdas](./StreamsAndLambdas)
+Modern Java functional programming. Demonstrates data processing, filtering, and aggregation using the Java Streams API and Lambda expressions.
+
+### 6. [Generics](./Generics)
+Type-safe programming in Java. Demonstrates custom generic classes (like generic `Pair` tuples) and bounded type parameters.
+
+### 7. [Exception Handling](./ExceptionHandling)
+Robust error management, demonstrating custom exceptions, try-catch-finally blocks, and fail-fast validation mechanisms.
+
+---
+
+## 🎮 Featured Projects
+
+### [TicTacToe Engine](./TicTacToe)
+A fully functional, extensible TicTacToe game engine built from scratch.
+- **Key Patterns:** Strategy (for winning rules and Bot AI), Builder (for game instantiation), Factory (for Bot creation).
+- **Features:** Supports `N x N` board sizes, undo functionality with `O(1)` state restoration, and algorithmic Bot opponents.
+
+### [Library Management System](./LibraryManagementSystem)
+A domain-driven design modeling a real-world library.
+- **Entities:** Books, Novels, Textbooks, Members, and Librarians.
+- **Focus:** Demonstrates inheritance, interface implementation (`Lendable`), and domain modeling.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- **Java:** JDK 17 or higher
+- **Maven:** 3.8+ (for building the project)
+
+### Building the Project
+Because this is a Maven Multi-Module project, you can compile and run tests for the entire repository with a single command:
 
 ```bash
-javac -cp .:junit-platform-console-standalone.jar OOPS-1/test/**/*.java OOPS-1/src/**/*.java
-java -jar junit-platform-console-standalone.jar -cp OOPS-1/src:OOPS-1/test --scan-classpath
+# Clone the repository
+git clone https://github.com/Dpk376/low-level-design-java-dpk.git
+cd low-level-design-java-dpk
+
+# Compile and run all tests
+mvn clean test
+```
+
+### Running Specific Modules
+If you want to run a specific module (e.g., the TicTacToe game), navigate to its directory and run the client:
+```bash
+cd TicTacToe
+mvn clean compile
+# Run the Client class using your IDE or the java command
 ```
 
 ---
 
-*“Code is read much more often than it is written.”* – Guido van Rossum
+## 💡 Google Engineering Standards Applied
+Throughout this repository, I have strictly adhered to industry best practices:
+- **Clean Code:** Meaningful variable names, single-responsibility methods, and no "magic numbers".
+- **Documentation:** Javadocs explaining not just *what* the code does, but *why* specific design decisions and trade-offs were made.
+- **Fail-Fast Design:** Extensive use of validations and custom exceptions to prevent invalid states (e.g., Game Builder validations).
+- **Immutability:** Use of `final` keywords and immutable structures where applicable to prevent side effects.
+
+---
+*Feel free to explore the code, open an issue if you spot a bug, or reach out if you'd like to discuss system design!*

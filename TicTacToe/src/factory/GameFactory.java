@@ -23,8 +23,12 @@ public class GameFactory {
 
         // Assuming Game has a builder for robust creation
         return Game.getBuilder()
-                .setDimension(dimension)
+                .setSize(dimension)
                 .setPlayers(players)
+                .setWinningStrategies(List.of(
+                        new strategy.RowWinningStrategy(),
+                        new strategy.ColWinningStrategy()
+                ))
                 .build();
     }
 }
